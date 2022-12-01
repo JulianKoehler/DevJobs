@@ -1,0 +1,42 @@
+.btn {
+  border-radius: 5px;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 700;
+  text-align: center;
+  margin: 1rem;
+  transition: background 0.35s;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.btn-type-1 {
+  background: var(--violet);
+  color: var(--white);
+}
+
+.btn-type-1:hover {
+  background: var(--light-violet);
+}
+
+.btn-type-2 {
+  background: var(--light-grey);
+  color: var(--violet);
+}
+
+.btn-type-2:hover {
+  background: var(--blueish-gray);
+}
+
+.btn-type-2-dark {
+  background: var(--very-dark-grey);
+  color: var(--white);
+}
+
+.btn-type-2-dark:hover {
+  background: var(--dark-btn-hover-gray);
+}
