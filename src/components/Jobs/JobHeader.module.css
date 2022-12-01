@@ -1,0 +1,7 @@
+.search-bar {
+  position: relative;
+  top: 8em;
+  display: flex;
+  gap: 1em;
+  margin-inline: auto;
+}
