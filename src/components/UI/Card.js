@@ -18,6 +18,7 @@ export default Card;
 
 const Div = styled.div`
   border-radius: 0.3125rem;
-  background-color: ${props => (props.theme === "light" ? "white" : "var(--very-dark-blue")};
-  width: fit-content;
+  transition: background 0.5s;
+  background: ${props => (props.theme === "light" ? "white" : "var(--very-dark-blue)")};
+  color: ${props => (props.theme === "light" ? "var(--very-dark-blue)" : "white")};
 `;

@@ -1,0 +1,8 @@
+.error-message {
+  padding: 2rem;
+  position: absolute;
+  text-align: center;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+}

@@ -14,7 +14,11 @@ const Checkbox = props => {
         id="cb"
         theme={colorThemeCtx.colorTheme}
       />
-      <label htmlFor="cb">{props.label}</label>
+      <label
+        className={props.className}
+        htmlFor="cb">
+        {props.label}
+      </label>
     </div>
   );
 };
@@ -23,6 +27,7 @@ export default Checkbox;
 
 const CustomCheckBox = styled.input`
   & + label {
+    transition: color 0.7s;
     color: ${props => (props.theme === "light" ? "black" : "white")};
     font-size: 1rem;
     font-weight: 700;
@@ -30,9 +35,10 @@ const CustomCheckBox = styled.input`
 
   & + label::before {
     content: "";
-    width: 1.5em;
+    min-width: 1.5em;
     height: 1.5em;
-    background: ${props => (props.theme === "light" ? "var(--very-dark-blue)" : "white")};
+    transition: background-color 0.7s;
+    background-color: ${props => (props.theme === "light" ? "var(--very-dark-blue)" : "white")};
     opacity: 0.1;
     margin-right: 1em;
     border-radius: 0.1875em;

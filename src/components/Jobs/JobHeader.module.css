@@ -4,4 +4,6 @@
   display: flex;
   gap: 1em;
   margin-inline: auto;
+  width: 90%;
+  max-width: 1110px;
 }

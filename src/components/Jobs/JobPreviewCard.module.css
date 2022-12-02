@@ -1,0 +1,9 @@
+.job-preview-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 1.5rem;
+  min-width: 21.875em;
+  height: 225px;
+  position: relative;
+}

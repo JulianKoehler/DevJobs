@@ -25,14 +25,14 @@ const SearchInput = props => {
 export default SearchInput;
 
 const Input = styled.input`
-  padding: 1rem 1rem 1rem 3rem;
+  padding: 1rem 1rem 1rem 3.5rem;
   border-radius: 0.375rem;
   border: none;
   transition: background 0.35s;
-  background-color: ${props => (props.colorTheme === "light" ? "var(--white)" : "var(--very-dark-blue)")};
+  background-color: transparent;
   background-image: url(${props => props.searchIcon});
   background-repeat: no-repeat;
-  background-position: 1rem 50%;
+  background-position: 1.5rem 50%;
   background-size: 1.5em;
   color: ${props => (props.colorTheme === "light" ? "black" : "var(--white)")};
   margin-left: -0.5rem;
@@ -40,5 +40,9 @@ const Input = styled.input`
 
   &:focus {
     outline: none;
+  }
+
+  &::placeholder {
+    font-size: 1rem;
   }
 `;

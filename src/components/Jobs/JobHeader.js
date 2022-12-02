@@ -26,7 +26,7 @@ const JobHeader = props => {
 export default JobHeader;
 
 const Header = styled.header`
-  width: 100vw;
+  width: 100%;
   height: 10.125em;
   background-color: var(--violet);
   border-radius: 0 0 0 6.25rem;
@@ -36,8 +36,10 @@ const Header = styled.header`
 const TopContent = styled.div`
   display: flex;
   align-items: center;
+  transform: translateY(-1em);
   justify-content: space-between;
   height: 100%;
-  width: 920px;
+  width: 90%;
+  max-width: 1110px;
   margin-inline: auto;
 `;
