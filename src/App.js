@@ -26,6 +26,6 @@ export default App;
 const Wrapper = styled.div`
   width: 100vw;
   height: 100vh;
-  transition: background 0.35s;
-  background: ${props => (props.theme === "light" ? "var(--light-grey)" : "var(--midnight)")};
+  /* transition: background 0.35s; */
+  /* background: ${props => (props.theme === "light" ? "var(--light-grey)" : "var(--midnight)")}; */
 `;
