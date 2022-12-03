@@ -5,17 +5,20 @@ import Searchbar from "./components/UI/Searchbar";
 import ColorThemeContext from "./store/colorTheme-context";
 import JobHeader from "./components/Jobs/JobHeader";
 import JobPreviewList from "./components/Jobs/JobPreviewList";
+import FilterJobsProvider from "./store/FilterJobsProvider";
 
 function App() {
   const colorThemeCtx = useContext(ColorThemeContext);
 
   return (
-    <Wrapper theme={colorThemeCtx.colorTheme}>
-      <JobHeader>
-        <Searchbar />
-      </JobHeader>
-      <JobPreviewList />
-    </Wrapper>
+    <FilterJobsProvider>
+      <Wrapper theme={colorThemeCtx.colorTheme}>
+        <JobHeader>
+          <Searchbar />
+        </JobHeader>
+        <JobPreviewList />
+      </Wrapper>
+    </FilterJobsProvider>
   );
 }
 

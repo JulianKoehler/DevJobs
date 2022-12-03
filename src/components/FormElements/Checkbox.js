@@ -10,6 +10,7 @@ const Checkbox = props => {
   return (
     <div className={classes["checkbox-container"]}>
       <CustomCheckBox
+        onChange={props.onChange}
         type="checkbox"
         id="cb"
         theme={colorThemeCtx.colorTheme}

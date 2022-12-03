@@ -5,7 +5,7 @@ import locationIcon from "../../assets/desktop/icon-location.svg";
 import ColorThemeContext from "../../store/colorTheme-context";
 
 const SearchInput = props => {
-  const { placeholder, width, icon } = props;
+  const { placeholder, width, icon, onChange } = props;
 
   const searchIcon = icon === "location" ? locationIcon : lensIcon;
 
@@ -13,6 +13,7 @@ const SearchInput = props => {
 
   return (
     <Input
+      onChange={onChange}
       type="search"
       placeholder={placeholder}
       width={width}

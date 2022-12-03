@@ -1,28 +1,88 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import classes from "./JobPreviewList.module.css";
 import Button from "../UI/Button";
 import Card from "../UI/Card";
 import JobPreviewCard from "./JobPreviewCard";
+import FilterJobsContext from "../../store/filter-jobs-context";
 
 /** Usually the filter criteria filled in by the user would be sent to the backend which would then handle the logic,
  * build the respective array and send it to the front end. But since this is a front-end-only project I will handle
- * the logic within this code base using the context API for better state management and avoiding prop chains.
+ * the logic within this code base using the context API and reducers for better state management and avoiding prop chains.
+ * The start and end of the filter logic is clearly marked to help the readability.
  */
 
 const JobPreviewList = () => {
+  const filterCtx = useContext(FilterJobsContext);
+  const { searchFilter, locationFilter, fullTimeOnly, timesSearchButtonClicked } = filterCtx;
+
   const [jobData, setJobData] = useState(undefined);
-  const [loadedData, setLoadedData] = useState(9);
+  const [loadedData, setLoadedData] = useState(undefined);
   const [errorOccured, setErrorOccured] = useState(false);
 
-  const errorMessage = "Upps! Hier steckt irgendwo der Wurm drin. Versuch's am besten später nochmal.";
+  const errorMessage = "Houston, we have a problem. Please try again later!";
 
   const getData = async () => {
     try {
       const response = await fetch("data.json");
       const result = await response.json();
 
-      setJobData(result);
+      /** Start of Filter Logic */
+      const filteredJobData = await result.filter(job => {
+        if (searchFilter && locationFilter && fullTimeOnly) {
+          return (
+            (job.position.includes(searchFilter) ||
+              job.company.includes(searchFilter) ||
+              job.requirements.items.some(item => item.includes(searchFilter))) &&
+            job.location.some(loc => loc === locationFilter) &&
+            job.contract === "Full Time"
+          );
+        }
+
+        if (searchFilter && locationFilter) {
+          return (
+            (job.position.includes(searchFilter) ||
+              job.company.includes(searchFilter) ||
+              job.requirements.items.some(item => item.includes(searchFilter))) &&
+            job.location.some(loc => loc === locationFilter)
+          );
+        }
+
+        if (searchFilter && fullTimeOnly) {
+          return (
+            (job.position.includes(searchFilter) ||
+              job.company.includes(searchFilter) ||
+              job.requirements.items.some(item => item.includes(searchFilter))) &&
+            job.contract === "Full Time"
+          );
+        }
+
+        if (locationFilter && fullTimeOnly) {
+          return job.location.some(loc => loc === locationFilter) && job.contract === "Full Time";
+        }
+
+        if (searchFilter) {
+          return (
+            job.position.includes(searchFilter) ||
+            job.company.includes(searchFilter) ||
+            job.requirements.items.some(item => item.includes(searchFilter))
+          );
+        }
+
+        if (locationFilter) {
+          return job.location.some(loc => loc === locationFilter);
+        }
+
+        if (fullTimeOnly) {
+          return job.contract === "Full Time";
+        }
+
+        return job;
+      });
+      /** End of Filter Logic */
+
+      setJobData(filteredJobData);
+      setLoadedData(filteredJobData.length > 9 ? 9 : filteredJobData.length);
       setErrorOccured(false);
     } catch (err) {
       console.log(err);
@@ -34,13 +94,11 @@ const JobPreviewList = () => {
 
   useEffect(() => {
     getData();
-  }, []);
+  }, [timesSearchButtonClicked]);
 
   const loadMoreData = () => {
     setLoadedData(prevAmount => prevAmount + 3);
   };
-
-  const filteredJobData = jobData;
 
   return (
     <ListWrapper>
@@ -51,7 +109,7 @@ const JobPreviewList = () => {
           </Card>
         )}
         {jobData &&
-          filteredJobData.slice(0, loadedData).map(job => (
+          jobData.slice(0, loadedData).map(job => (
             <JobPreviewCard
               key={job.id}
               companyName={job.company}
@@ -60,13 +118,19 @@ const JobPreviewList = () => {
               jobTitle={job.position}
               postedAt={job.postedAt}
               workingHours={job.contract}
-              location={job.location}
+              location={job.location[0]}
               expertise={job.requirements}
               website={job.website}
             />
           ))}
+        {!errorOccured && jobData && jobData.length === 0 && (
+          <Card className={classes["no-results-found"]}>
+            <h3>No Results for your Search</h3>
+          </Card>
+        )}
       </List>
-      {!errorOccured && (
+
+      {!errorOccured && jobData && loadedData !== jobData.length && (
         <Button
           onClick={loadMoreData}
           type={"btn-type-1"}>
@@ -82,6 +146,7 @@ export default JobPreviewList;
 const ListWrapper = styled.main`
   width: 100%;
   padding-top: 7rem;
+  margin-bottom: 5rem;
 `;
 
 const List = styled.div`
