@@ -10,6 +10,11 @@ import FilterJobsContext from "../../store/filter-jobs-context";
  * build the respective array and send it to the front end. But since this is a front-end-only project I will handle
  * the logic within this code base using the context API and reducers for better state management and avoiding prop chains.
  * The start and end of the filter logic is clearly marked to help the readability.
+ *
+ * Also: The filter function is case sensitive which is of course not optimal. I was externally provided with the
+ * JSON file with the job data. Unfortunately it had no property such as "Tags" or "Filter Tags" which could unify
+ * the results when searching for Frontend or front end or front-end. The backend would be able to convert the
+ * strings into a unified version like lower kebab case.
  */
 
 const JobPreviewList = () => {

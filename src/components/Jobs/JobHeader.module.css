@@ -4,6 +4,6 @@
   display: flex;
   gap: 1em;
   margin-inline: auto;
-  width: 90%;
+  width: var(--header-content-width);
   max-width: 1110px;
 }

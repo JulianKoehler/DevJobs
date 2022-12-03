@@ -39,7 +39,7 @@ const TopContent = styled.div`
   transform: translateY(-1em);
   justify-content: space-between;
   height: 100%;
-  width: 90%;
+  width: var(--header-content-width);
   max-width: 1110px;
   margin-inline: auto;
 `;

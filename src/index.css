@@ -15,6 +15,9 @@
   --very-dark-grey: #303642;
   --blueish-gray: #c5c9f4;
   --dark-btn-hover-gray: #696e76;
+
+  /* Measures */
+  --header-content-width: 90%;
 }
 
 *,
