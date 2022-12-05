@@ -17,7 +17,8 @@
   --dark-btn-hover-gray: #696e76;
 
   /* Measures */
-  --header-content-width: 90%;
+  --content-width: 90%;
+  --content-max-width: 730px;
 }
 
 *,
@@ -29,10 +30,15 @@
   font-family: "Kumbh Sans", sans-serif;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   font-size: 16px;
   line-height: 26px;
   font-weight: 400;
+  height: 100%;
 }
 
 h1 {
@@ -53,6 +59,10 @@ h3 {
 h4 {
   font-size: 14px;
   line-height: 17px;
+}
+
+p {
+  color: var(--dark-grey);
 }
 
 #root {

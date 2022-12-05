@@ -1,0 +1,43 @@
+.job-details {
+  width: 90%;
+  max-width: var(--content-max-width);
+  margin-inline: auto;
+  padding: 2% 3% 0;
+  margin-top: 9rem;
+}
+
+.btn {
+  margin: 0;
+}
+
+h3 {
+  margin: 2rem 0;
+}
+
+ul {
+  margin: 2rem 0 3rem;
+  list-style: none;
+}
+
+li {
+  display: flex;
+  margin: 0.8rem 0;
+}
+
+li p {
+  display: inline-block;
+}
+
+li::before {
+  content: "\2022";
+  color: var(--violet);
+  font-weight: bold;
+  font-size: 1.5rem;
+  display: inline-block;
+  width: 4px;
+  margin-right: 2rem;
+}
+
+.tasks-items:last-child {
+  padding-bottom: 3rem;
+}

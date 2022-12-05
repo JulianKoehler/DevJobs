@@ -8,6 +8,7 @@ import FilterJobsContext from "../../store/filter-jobs-context";
 
 const Searchbar = () => {
   const filterCtx = useContext(FilterJobsContext);
+  console.log(filterCtx);
 
   const filterJobs = () => {
     filterCtx.onSearch();
@@ -17,25 +18,29 @@ const Searchbar = () => {
     <React.Fragment>
       <SearchInput
         onChange={filterCtx.setSearch}
+        value={filterCtx.searchFilter}
         icon={"lens"}
         placeholder={"Filter by title, companies, expertise..."}
         width={"40%"}
       />
       <SearchInput
         onChange={filterCtx.setLocationFilter}
+        value={filterCtx.locationFilter}
         icon={"location"}
         placeholder={"Filter by location..."}
         width={"30%"}
       />
       <SearchBarRightSide>
         <Checkbox
+          checked={filterCtx.fullTimeOnly}
           onChange={filterCtx.setFullTimeOnly}
           className={classes["checkbox-label"]}
           label={"Full Time Only"}
         />
         <Button
+          type="submit"
           onClick={filterJobs}
-          type={"btn-type-1"}>
+          btnType={"btn-type-1"}>
           Search
         </Button>
       </SearchBarRightSide>

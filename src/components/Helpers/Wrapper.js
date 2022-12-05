@@ -2,13 +2,11 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import ColorThemeContext from "../../store/colorTheme-context";
 
-const Card = props => {
+const Wrapper = props => {
   const colorThemeCtx = useContext(ColorThemeContext);
 
   return (
     <Div
-      onMouseEnter={props.onMouseEnter}
-      onMouseLeave={props.onMouseLeave}
       className={props.className}
       theme={colorThemeCtx.colorTheme}>
       {props.children}
@@ -16,11 +14,12 @@ const Card = props => {
   );
 };
 
-export default Card;
+export default Wrapper;
 
 const Div = styled.div`
-  border-radius: 0.3125rem;
-  transition: all 0.5s;
-  background: ${props => (props.theme === "light" ? "white" : "var(--very-dark-blue)")};
-  color: ${props => (props.theme === "light" ? "var(--very-dark-blue)" : "white")};
+  width: 100%;
+  min-height: 100%;
+  transition: background 0.5s;
+  background: ${props => (props.theme === "light" ? "var(--light-grey)" : "var(--midnight)")};
+  /* overflow-x: hidden; */
 `;

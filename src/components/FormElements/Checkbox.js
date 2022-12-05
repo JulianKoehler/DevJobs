@@ -3,14 +3,17 @@ import styled from "styled-components";
 import classes from "./Checkbox.module.css";
 import checkIcon from "../../assets/desktop/icon-check.svg";
 import ColorThemeContext from "../../store/colorTheme-context";
+import FilterJobsContext from "../../store/filter-jobs-context";
 
 const Checkbox = props => {
   const colorThemeCtx = useContext(ColorThemeContext);
+  const filterCtx = useContext(FilterJobsContext);
 
   return (
     <div className={classes["checkbox-container"]}>
       <CustomCheckBox
         onChange={props.onChange}
+        checked={props.checked}
         type="checkbox"
         id="cb"
         theme={colorThemeCtx.colorTheme}

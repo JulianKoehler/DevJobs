@@ -4,6 +4,17 @@
   display: flex;
   gap: 1em;
   margin-inline: auto;
-  width: var(--header-content-width);
+  width: var(--content-width);
   max-width: 1110px;
+}
+
+.company-info {
+  position: relative;
+  bottom: 2em;
+  display: flex;
+  gap: 1em;
+  margin-inline: auto;
+
+  width: var(--content-width);
+  max-width: var(--content-max-width);
 }

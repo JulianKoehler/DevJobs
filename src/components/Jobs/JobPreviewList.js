@@ -21,7 +21,7 @@ const JobPreviewList = () => {
   const filterCtx = useContext(FilterJobsContext);
   const { searchFilter, locationFilter, fullTimeOnly, timesSearchButtonClicked } = filterCtx;
 
-  const [jobData, setJobData] = useState(undefined);
+  const [jobsData, setJobsData] = useState(undefined);
   const [loadedData, setLoadedData] = useState(undefined);
   const [errorOccured, setErrorOccured] = useState(false);
 
@@ -33,7 +33,7 @@ const JobPreviewList = () => {
       const result = await response.json();
 
       /** Start of Filter Logic */
-      const filteredJobData = await result.filter(job => {
+      const filteredJobsData = await result.filter(job => {
         if (searchFilter && locationFilter && fullTimeOnly) {
           return (
             (job.position.includes(searchFilter) ||
@@ -86,13 +86,13 @@ const JobPreviewList = () => {
       });
       /** End of Filter Logic */
 
-      setJobData(filteredJobData);
-      setLoadedData(filteredJobData.length > 9 ? 9 : filteredJobData.length);
+      setJobsData(filteredJobsData);
+      setLoadedData(filteredJobsData.length > 9 ? 9 : filteredJobsData.length);
       setErrorOccured(false);
     } catch (err) {
-      console.log(err);
+      console.error(err);
 
-      setJobData(undefined);
+      setJobsData(undefined);
       setErrorOccured(true);
     }
   };
@@ -113,10 +113,11 @@ const JobPreviewList = () => {
             <h3>{errorMessage}</h3>
           </Card>
         )}
-        {jobData &&
-          jobData.slice(0, loadedData).map(job => (
+        {jobsData &&
+          jobsData.slice(0, loadedData).map(job => (
             <JobPreviewCard
               key={job.id}
+              id={job.id}
               companyName={job.company}
               companyLogo={job.logo}
               logoBackground={job.logoBackground}
@@ -128,17 +129,17 @@ const JobPreviewList = () => {
               website={job.website}
             />
           ))}
-        {!errorOccured && jobData && jobData.length === 0 && (
+        {!errorOccured && jobsData && jobsData.length === 0 && (
           <Card className={classes["no-results-found"]}>
             <h3>No Results for your Search</h3>
           </Card>
         )}
       </List>
 
-      {!errorOccured && jobData && loadedData !== jobData.length && (
+      {!errorOccured && jobsData && loadedData !== jobsData.length && (
         <Button
           onClick={loadMoreData}
-          type={"btn-type-1"}>
+          btnType={"btn-type-1"}>
           Load More
         </Button>
       )}
@@ -159,7 +160,8 @@ const List = styled.div`
   grid-template-columns: 21.875em 21.875em 21.875em;
   column-gap: 1.875em;
   row-gap: 4.0625em;
-  width: 69.375em;
+  width: var(--content-width);
+  max-width: 69.375em;
   margin: 0 auto 3.5rem;
 
   & + button {

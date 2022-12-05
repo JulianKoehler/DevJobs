@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import classes from "./JobHeader.module.css";
 import headerImg from "../../assets/desktop/bg-pattern-header.svg";
@@ -10,15 +11,17 @@ const JobHeader = props => {
   return (
     <Header>
       <TopContent>
-        <div>
+        <Link to="/">
           <img
             src={devjobsLogo}
             alt="devjobs-logo"
           />
-        </div>
+        </Link>
         <ColorThemeSelector />
       </TopContent>
-      <Card className={classes["search-bar"]}>{props.children}</Card>
+      <Card className={props.children.key === "Home" ? classes["search-bar"] : classes["company-info"]}>
+        {props.children}
+      </Card>
     </Header>
   );
 };
@@ -39,7 +42,7 @@ const TopContent = styled.div`
   transform: translateY(-1em);
   justify-content: space-between;
   height: 100%;
-  width: var(--header-content-width);
+  width: var(--content-width);
   max-width: 1110px;
   margin-inline: auto;
 `;

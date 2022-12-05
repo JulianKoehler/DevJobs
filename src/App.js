@@ -1,33 +1,30 @@
-import React, { useContext } from "react";
-import styled from "styled-components";
-// import Button from "./components/UI/Button";
-import Searchbar from "./components/UI/Searchbar";
-import ColorThemeContext from "./store/colorTheme-context";
-import JobHeader from "./components/Jobs/JobHeader";
-import JobPreviewList from "./components/Jobs/JobPreviewList";
+import React from "react";
+
 import FilterJobsProvider from "./store/FilterJobsProvider";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Home from "./pages/Home";
+import JobDetail from "./pages/JobDetail";
 
 function App() {
-  const colorThemeCtx = useContext(ColorThemeContext);
-
   return (
     <FilterJobsProvider>
-      <Wrapper theme={colorThemeCtx.colorTheme}>
-        <JobHeader>
-          <Searchbar />
-        </JobHeader>
-        <JobPreviewList />
-      </Wrapper>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            exact
+            path="/"
+            element={<Home />}
+          />
+          <Route
+            exact
+            path="/:jobId"
+            element={<JobDetail />}
+          />
+        </Routes>
+      </BrowserRouter>
     </FilterJobsProvider>
   );
 }
 
 export default App;
-
-const Wrapper = styled.div`
-  width: 100%;
-  height: 100vh;
-  transition: background 0.5s;
-  background: ${props => (props.theme === "light" ? "var(--light-grey)" : "var(--midnight)")};
-  overflow-x: hidden;
-`;
