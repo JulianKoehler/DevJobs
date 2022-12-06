@@ -1,6 +1,7 @@
 .checkbox-container {
-  display: flex;
-  align-items: center;
+  display: block;
+  margin: auto 0;
+  white-space: nowrap;
 }
 
 .checkbox-container label {

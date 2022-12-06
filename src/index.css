@@ -12,13 +12,15 @@
   --light-grey: #f4f6f8;
   --gray: #9daec2;
   --dark-grey: #6e8098;
+  --dark-grey-low-opacity: rgb(110, 128, 152, 0.2);
   --very-dark-grey: #303642;
   --blueish-gray: #c5c9f4;
   --dark-btn-hover-gray: #696e76;
 
   /* Measures */
   --content-width: 90%;
-  --content-max-width: 730px;
+  --home-max-width: 69.375em;
+  --job-details-max-width: 45.625em;
 }
 
 *,
@@ -28,6 +30,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Kumbh Sans", sans-serif;
+  /* border: 1px solid red; */
 }
 
 html {

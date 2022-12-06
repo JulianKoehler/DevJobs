@@ -8,6 +8,7 @@ import Card from "../UI/Card";
 import ColorThemeSelector from "../FormElements/ColorThemeSelector";
 
 const JobHeader = props => {
+  console.log("JobHeader rendered");
   return (
     <Header>
       <TopContent>

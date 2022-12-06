@@ -1,9 +1,8 @@
 .job-preview-card {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   padding: 1.5rem;
-  min-width: 21.875em;
   height: 225px;
   position: relative;
 }
@@ -11,4 +10,8 @@
 .job-preview-card:hover {
   transform: scale(1.1);
   cursor: pointer;
+}
+
+a {
+  display: block;
 }

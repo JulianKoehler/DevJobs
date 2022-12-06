@@ -5,19 +5,7 @@ import classes from "./JobContent.module.css";
 import Button from "../UI/Button";
 
 const JobContent = props => {
-  const {
-    tasks,
-    requirements,
-    companyName,
-    companyLogo,
-    logoBackground,
-    jobTitle,
-    postedAt,
-    workingHours,
-    location,
-    website,
-    introText,
-  } = props;
+  const { tasks, requirements, jobTitle, postedAt, workingHours, location, introText } = props;
 
   return (
     <main>
@@ -39,24 +27,28 @@ const JobContent = props => {
         <p>{introText}</p>
         <h3>Requirements</h3>
         <p>{requirements.content}</p>
-        <ul>
-          {requirements.items.map(item => (
-            <li key={item}>
-              <p>{item}</p>
-            </li>
-          ))}
-        </ul>
+        {requirements.items && (
+          <ul>
+            {requirements.items.map(item => (
+              <li key={item}>
+                <p>{item}</p>
+              </li>
+            ))}
+          </ul>
+        )}
         <h3>What you will do</h3>
         <p>{tasks.content}</p>
-        <ul>
-          {tasks.items.map(item => (
-            <li
-              key={item}
-              className={classes["tasks-items"]}>
-              <p>{item}</p>
-            </li>
-          ))}
-        </ul>
+        {tasks.items && (
+          <ul>
+            {tasks.items.map(item => (
+              <li
+                key={item}
+                className={classes["tasks-items"]}>
+                <p>{item}</p>
+              </li>
+            ))}
+          </ul>
+        )}
       </Card>
     </main>
   );

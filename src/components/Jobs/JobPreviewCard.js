@@ -43,6 +43,10 @@ const Logo = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  & + p {
+    margin-top: 1rem;
+  }
 `;
 
 const Dot = styled.span`
@@ -52,6 +56,7 @@ const Dot = styled.span`
 
 const Position = styled.h3`
   color: ${props => (props.theme === "light" ? "var(--very-dark-blue)" : "white")};
+  margin: 0.5rem 0;
 `;
 
 const CompanyName = styled.p`
@@ -59,5 +64,6 @@ const CompanyName = styled.p`
 `;
 
 const JobLocation = styled.h4`
+  margin-top: auto;
   color: var(--violet);
 `;

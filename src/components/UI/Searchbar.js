@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import classes from "./Searchbar.module.css";
 import Checkbox from "../FormElements/Checkbox";
@@ -6,9 +6,36 @@ import SearchInput from "../FormElements/SearchInput";
 import Button from "./Button";
 import FilterJobsContext from "../../store/filter-jobs-context";
 
+/** This function is for performance purposes, we set a Timeout for the setScreenWidth function so React
+ * won't rerender on every resize but only after a certain amount of time after the screen stopped resizing
+ */
+
+function debounce(fn, ms) {
+  let timer;
+  return () => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      timer = null;
+      fn.apply(this, arguments);
+    }, ms);
+  };
+}
+
 const Searchbar = () => {
   const filterCtx = useContext(FilterJobsContext);
-  console.log(filterCtx);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+  console.log("Searchbar rendered");
+
+  const handleResize = () => {
+    setScreenWidth(window.innerWidth);
+  };
+
+  React.useEffect(() => {
+    const debouncedHandleResize = debounce(handleResize, 500);
+
+    window.addEventListener("resize", debouncedHandleResize);
+  });
 
   const filterJobs = () => {
     filterCtx.onSearch();
@@ -35,7 +62,7 @@ const Searchbar = () => {
           checked={filterCtx.fullTimeOnly}
           onChange={filterCtx.setFullTimeOnly}
           className={classes["checkbox-label"]}
-          label={"Full Time Only"}
+          label={screenWidth > 768 ? "Full Time Only" : "Full Time"}
         />
         <Button
           type="submit"
@@ -51,6 +78,5 @@ const Searchbar = () => {
 export default Searchbar;
 
 const SearchBarRightSide = styled.div`
-  width: 30%;
   display: flex;
 `;

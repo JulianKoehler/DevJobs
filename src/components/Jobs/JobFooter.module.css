@@ -23,7 +23,7 @@ footer h3 {
   align-items: center;
   justify-content: space-between;
   width: var(--content-width);
-  max-width: var(--content-max-width);
+  max-width: var(--job-details-max-width);
   margin-inline: auto;
   padding: 1.3rem 0;
 }

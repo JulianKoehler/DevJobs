@@ -152,17 +152,21 @@ export default JobPreviewList;
 const ListWrapper = styled.main`
   width: 100%;
   padding-top: 7rem;
-  margin-bottom: 5rem;
+  padding-bottom: 5rem;
 `;
 
 const List = styled.div`
   display: grid;
-  grid-template-columns: 21.875em 21.875em 21.875em;
+  grid-template-columns: 1fr 1fr 1fr;
   column-gap: 1.875em;
   row-gap: 4.0625em;
   width: var(--content-width);
-  max-width: 69.375em;
+  max-width: var(--home-max-width);
   margin: 0 auto 3.5rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+  }
 
   & + button {
     display: block;

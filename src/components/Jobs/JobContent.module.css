@@ -1,6 +1,6 @@
 .job-details {
   width: 90%;
-  max-width: var(--content-max-width);
+  max-width: var(--job-details-max-width);
   margin-inline: auto;
   padding: 2% 3% 0;
   margin-top: 9rem;
