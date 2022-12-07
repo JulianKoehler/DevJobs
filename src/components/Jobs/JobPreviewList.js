@@ -170,6 +170,7 @@ const List = styled.div`
 
   @media (max-width: 428px) {
     grid-template-columns: 1fr;
+    row-gap: 3rem;
   }
 
   & + button {
