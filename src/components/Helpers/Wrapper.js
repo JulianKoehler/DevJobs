@@ -21,5 +21,4 @@ const Div = styled.div`
   min-height: 100%;
   transition: background 0.5s;
   background: ${props => (props.theme === "light" ? "var(--light-grey)" : "var(--midnight)")};
-  /* overflow-x: hidden; */
 `;

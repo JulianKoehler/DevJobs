@@ -13,10 +13,10 @@ const CompanyInfo = props => {
         />
       </Logo>
       <Content>
-        <LeftBlock>
+        <CompanyName>
           <h2>{props.companyName}</h2>
           <p>{beautifiedWebsite}</p>
-        </LeftBlock>
+        </CompanyName>
         <Button btnType={"btn-type-2"}>Company Site</Button>
       </Content>
     </React.Fragment>
@@ -37,6 +37,16 @@ const Logo = styled.div`
   & img {
     width: 58%;
   }
+
+  @media (max-width: 428px) {
+    width: 50px;
+    height: 50px;
+    border-radius: 15px;
+    left: 50%;
+    top: -1.5rem;
+    transform: translateX(-50%);
+    position: absolute;
+  }
 `;
 
 const Content = styled.div`
@@ -45,6 +55,14 @@ const Content = styled.div`
   justify-content: space-between;
   padding: 1rem;
   align-items: center;
+
+  @media (max-width: 428px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    padding-top: 2.5rem;
+  }
 `;
 
-const LeftBlock = styled.div``;
+const CompanyName = styled.div``;

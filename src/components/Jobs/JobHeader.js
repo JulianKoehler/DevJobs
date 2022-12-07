@@ -8,7 +8,6 @@ import Card from "../UI/Card";
 import ColorThemeSelector from "../FormElements/ColorThemeSelector";
 
 const JobHeader = props => {
-  console.log("JobHeader rendered");
   return (
     <Header>
       <TopContent>
@@ -35,6 +34,11 @@ const Header = styled.header`
   background-color: var(--violet);
   border-radius: 0 0 0 6.25rem;
   background-image: url(${headerImg});
+
+  @media (max-width: 428px) {
+    height: 7.5em;
+    border-radius: 0;
+  }
 `;
 
 const TopContent = styled.div`
@@ -46,4 +50,9 @@ const TopContent = styled.div`
   width: var(--content-width);
   max-width: 1110px;
   margin-inline: auto;
+
+  @media (max-width: 428px) {
+    align-items: flex-start;
+    padding-top: 3rem;
+  }
 `;

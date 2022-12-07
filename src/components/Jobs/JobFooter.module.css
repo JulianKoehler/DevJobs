@@ -33,3 +33,13 @@ footer h3 {
   flex-direction: column;
   gap: 0.5rem;
 }
+
+@media (max-width: 428px) {
+  .content-left {
+    display: none;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}

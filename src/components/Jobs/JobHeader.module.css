@@ -1,6 +1,9 @@
 .search-bar {
-  position: relative;
-  bottom: 2em;
+  position: absolute;
+  top: 8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 5rem;
   display: flex;
   justify-content: flex-end;
   gap: 1em;
@@ -10,11 +13,26 @@
 }
 
 .company-info {
-  position: relative;
-  bottom: 2em;
+  position: absolute;
+  top: 8rem;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   gap: 1em;
   margin-inline: auto;
   width: var(--content-width);
   max-width: var(--job-details-max-width);
+}
+
+@media (max-width: 428px) {
+  .search-bar {
+    top: 5.5rem;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .company-info {
+    flex-direction: column;
+    top: 6.5rem;
+  }
 }

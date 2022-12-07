@@ -87,7 +87,7 @@ const JobPreviewList = () => {
       /** End of Filter Logic */
 
       setJobsData(filteredJobsData);
-      setLoadedData(filteredJobsData.length > 9 ? 9 : filteredJobsData.length);
+      setLoadedData(filteredJobsData.length > 12 ? 12 : filteredJobsData.length);
       setErrorOccured(false);
     } catch (err) {
       console.error(err);
@@ -164,8 +164,12 @@ const List = styled.div`
   max-width: var(--home-max-width);
   margin: 0 auto 3.5rem;
 
-  @media (max-width: 768px) {
+  @media (max-width: 834px) {
     grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 428px) {
+    grid-template-columns: 1fr;
   }
 
   & + button {

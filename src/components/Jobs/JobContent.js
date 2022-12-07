@@ -62,6 +62,18 @@ const ContentHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media (max-width: 428px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  & h1 {
+    @media (max-width: 428px) {
+      font-size: 22px;
+      margin: 0;
+    }
+  }
 `;
 
 const Dot = styled.span`
@@ -74,4 +86,8 @@ const LeftSide = styled.div``;
 const JobLocation = styled.h4`
   margin-top: 0.8rem;
   color: var(--violet);
+
+  @media (max-width: 428px) {
+    margin: 0 0 2.5rem;
+  }
 `;

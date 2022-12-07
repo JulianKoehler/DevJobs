@@ -12,6 +12,7 @@ const Button = props => {
     <button
       type={props.type}
       onClick={props.onClick}
+      onSubmit={props.onSubmit}
       className={`
       ${classes.btn} 
       ${classes[btnType]} 

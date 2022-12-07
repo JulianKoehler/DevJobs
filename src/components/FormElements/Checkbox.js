@@ -35,6 +35,10 @@ const CustomCheckBox = styled.input`
     color: ${props => (props.theme === "light" ? "black" : "white")};
     font-size: 1rem;
     font-weight: 700;
+
+    @media (max-width: 768px) {
+      font-size: 0.9rem;
+    }
   }
 
   & + label::before {
