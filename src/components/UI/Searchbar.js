@@ -49,7 +49,7 @@ const Searchbar = () => {
     setShowMobileFilter(false);
   };
 
-  return screenWidth > 428 ? (
+  return screenWidth > 430 ? (
     <React.Fragment>
       <SearchInput
         onChange={filterCtx.setSearch}
