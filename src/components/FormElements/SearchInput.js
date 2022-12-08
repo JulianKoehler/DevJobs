@@ -57,7 +57,7 @@ const Input = styled.input`
       font-size: 0.9rem;
     }
 
-    @media (max-width: 428px) {
+    @media (max-width: 430px) {
       font-size: 1rem;
     }
   }
@@ -68,7 +68,7 @@ const Input = styled.input`
     justify-content: space-around;
   }
 
-  @media (max-width: 428px) {
+  @media (max-width: 430px) {
     border: none;
     width: 100%;
     font-size: 1rem;

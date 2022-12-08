@@ -63,13 +63,13 @@ const ContentHeader = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  @media (max-width: 428px) {
+  @media (max-width: 430px) {
     flex-direction: column;
     align-items: flex-start;
   }
 
   & h1 {
-    @media (max-width: 428px) {
+    @media (max-width: 430px) {
       font-size: 22px;
       margin: 0;
     }
@@ -87,7 +87,7 @@ const JobLocation = styled.h4`
   margin-top: 0.8rem;
   color: var(--violet);
 
-  @media (max-width: 428px) {
+  @media (max-width: 430px) {
     margin: 0 0 2.5rem;
   }
 `;

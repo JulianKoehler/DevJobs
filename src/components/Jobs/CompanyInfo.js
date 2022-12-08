@@ -38,7 +38,7 @@ const Logo = styled.div`
     width: 58%;
   }
 
-  @media (max-width: 428px) {
+  @media (max-width: 430px) {
     width: 50px;
     height: 50px;
     border-radius: 15px;
@@ -56,7 +56,7 @@ const Content = styled.div`
   padding: 1rem;
   align-items: center;
 
-  @media (max-width: 428px) {
+  @media (max-width: 430px) {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;

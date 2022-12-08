@@ -34,7 +34,7 @@ footer h3 {
   gap: 0.5rem;
 }
 
-@media (max-width: 428px) {
+@media (max-width: 430px) {
   .content-left {
     display: none;
   }
