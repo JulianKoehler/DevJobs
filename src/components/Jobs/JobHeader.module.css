@@ -24,7 +24,7 @@
   max-width: var(--job-details-max-width);
 }
 
-@media (max-width: 428px) {
+@media (max-width: 430px) {
   .search-bar {
     top: 5.5rem;
     align-items: center;

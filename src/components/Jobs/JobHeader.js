@@ -35,7 +35,7 @@ const Header = styled.header`
   border-radius: 0 0 0 6.25rem;
   background-image: url(${headerImg});
 
-  @media (max-width: 428px) {
+  @media (max-width: 430px) {
     height: 7.5em;
     border-radius: 0;
   }
@@ -51,7 +51,7 @@ const TopContent = styled.div`
   max-width: 1110px;
   margin-inline: auto;
 
-  @media (max-width: 428px) {
+  @media (max-width: 430px) {
     align-items: flex-start;
     padding-top: 3rem;
   }
