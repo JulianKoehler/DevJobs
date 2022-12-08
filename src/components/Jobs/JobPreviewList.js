@@ -168,7 +168,7 @@ const List = styled.div`
     grid-template-columns: 1fr 1fr;
   }
 
-  @media (max-width: 428px) {
+  @media (max-width: 430px) {
     grid-template-columns: 1fr;
     row-gap: 3rem;
   }

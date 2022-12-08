@@ -16,7 +16,7 @@ a {
   display: block;
 }
 
-@media (max-width: 428px) {
+@media (max-width: 430px) {
   .job-preview-card:hover {
     transform: none;
   }
